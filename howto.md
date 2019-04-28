@@ -1,6 +1,7 @@
 ---
 layout: page
 title: how to
+permalink: /how-to/
 ---
 
 1. Add card of note type *cloze_code_blocks*
