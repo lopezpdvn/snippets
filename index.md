@@ -3,27 +3,26 @@ layout: page
 title: home
 ---
 
-Promise based code version
-
 {% highlight javascript %}
-const getProcessedDataP = url =>
-  downloadData(url) // returns promise
-    .catch(e =>
-      downloadFallbackData(url)) // returns promise
-    .then(v =>
-      processDataInWorker(v)); // returns promise
-{% endhighlight %}
+'use strict';
+const log = console.log;
 
-async/await based code
+const rslvAfter2Secs = x => new Promise(
+ rslv => setTimeout(() => rslv(x), 2000)
+);
 
-{% highlight javascript %}
-const getProcessedData = async (url) => {
-  let v;
-  try {
-    v = await downloadData(url);
-  } catch(e) {
-    v = await downloadFallbackData(url);
-  }
-  return processDataInWorker(v);
+const f1 = async () => {
+  log('just before waiting 4 rslvAfter2Secs');
+  const x = await rslvAfter2Secs(10);
+  log('after waiting for rslvAfter2Secs') 
+  log(x); // 10
 }
+
+f1();
+log('after calling async function f1');
+
+// just before waiting 4 rslvAfter2Secs
+// after calling async function f1
+// after waiting for rslvAfter2Secs
+// 10
 {% endhighlight %}
