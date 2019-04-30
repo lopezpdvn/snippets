@@ -14,16 +14,24 @@ import gc
 class JekyllSlugger(HTMLParser):
     def __init__(self):
         super().__init__()
-        html = False
-        body = False
-        main = False
-        article = False
-        post = False
+        self.post_content = False
 
     def handle_starttag(self, tag, attrs):
         if not is_post_content_element(tag, attrs):
             return
-        print("Encountered post content:", tag)
+        self.post_content = True
+        print(self.get_starttag_text())
+
+    def handle_data(self, data):
+        if not self.post_content:
+            return
+        print(data)
+
+    def handle_endtag(self, tag):
+        if not self.post_content:
+            return
+        print(''.join(('<', tag, '>')))
+        self.post_content = False
 
 def is_post_content_element(tag, attrs):
     if tag != 'div':
