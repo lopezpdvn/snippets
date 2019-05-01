@@ -3,20 +3,36 @@ layout: page
 title: home
 ---
 
-Promise based code version
+_ThenBy_: Use after earlier sorting, to further sort a collection in ascending
+order.
 
-{% highlight javascript %}
-'use strict';
-const log = console.log;
+This Lambda Expression sample first sorts array by string length of city capital, and then by alphabet.
 
-(async () => {
-const response =
-  await Promise.reject(3)
-    .then(() => log('unreached'))
-    .catch(err => log(err));
-log(response === undefined);
-})();
+{% highlight csharp %}
+string[] capitals = {
+    "Berlin", "Paris", "Madrid", "Tokyo", "London",
+    "Athens", "Beijing", "Seoul" };
 
-// 3
-// true
+var result = (from c in capitals
+              orderby c.Length
+              select c)
+             .ThenBy(c => c);
+
+Debug.WriteLine("Ordered list of capitals, first by length and then alphabetical:");
+foreach (string capital in result)
+    Debug.WriteLine(capital);
 {% endhighlight %}
+
+Output:
+
+```
+Ordered list of capitals, first by length and then alphabetical:
+Paris
+Seoul
+Tokyo
+Athens
+Berlin
+London
+Madrid
+Beijing
+```
