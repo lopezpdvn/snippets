@@ -3,39 +3,21 @@
 
 '''slug-html'''
 
-# Standard library imports.
-from __future__ import division
 import sys
-import os
-import atexit
-import gc
 
-from bs4 import BeautifulSoup
-
-def is_post_content_element(tag, attrs):
-    if tag != 'div':
-        return False
-
-    for k, v in attrs:
-        if k == 'class' and v == 'post-content':
-            return True
-
-    return False
-
-def on_exit():
-    '''Actions to do on exit.'''
-    # Invoke the garbage collector.
-    gc.collect()
-
-# Program name from file name.
-PN = os.path.splitext(sys.argv[0])[0]
-
-# Log file.
-LOGF = ''.join([PN, '_log', '.txt'])
-
-atexit.register(on_exit)
+from bs4 import BeautifulSoup, NavigableString
 
 doc = BeautifulSoup(sys.stdin.read(), 'html.parser')
-post_content = (doc.find_all(name='div', class_='post-content')
+post_content = (doc.select('body main article div[class="post-content"]')
                    .pop())
-post_content_doc = BeautifulSoup(str(post_content), 'html.parser')
+code_blocks = post_content.select('figure[class="highlight"]')
+
+for code_block in code_blocks:
+    code_block.name = 'div'
+    for code_el in code_block.select('pre code'):
+        for i in code_el.children:
+            if not isinstance(i, NavigableString) or '\n' not in str(i):
+                continue
+            i.replace_with(doc.new_tag('br'))
+
+print(post_content)
