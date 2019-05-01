@@ -5,33 +5,12 @@
 
 # Standard library imports.
 from __future__ import division
-from html.parser import HTMLParser
 import sys
 import os
 import atexit
 import gc
 
-class JekyllSlugger(HTMLParser):
-    def __init__(self):
-        super().__init__()
-        self.post_content = False
-
-    def handle_starttag(self, tag, attrs):
-        if not is_post_content_element(tag, attrs):
-            return
-        self.post_content = True
-        print(self.get_starttag_text())
-
-    def handle_data(self, data):
-        if not self.post_content:
-            return
-        print(data)
-
-    def handle_endtag(self, tag):
-        if not self.post_content:
-            return
-        print(''.join(('<', tag, '>')))
-        self.post_content = False
+from bs4 import BeautifulSoup
 
 def is_post_content_element(tag, attrs):
     if tag != 'div':
@@ -55,7 +34,8 @@ PN = os.path.splitext(sys.argv[0])[0]
 LOGF = ''.join([PN, '_log', '.txt'])
 
 atexit.register(on_exit)
-slugger = JekyllSlugger()
-slugger.feed(sys.stdin.read())
 
-#print(sys.stdin.read(), end='')
+doc = BeautifulSoup(sys.stdin.read(), 'html.parser')
+post_content = (doc.find_all(name='div', class_='post-content')
+                   .pop())
+post_content_doc = BeautifulSoup(str(post_content), 'html.parser')
