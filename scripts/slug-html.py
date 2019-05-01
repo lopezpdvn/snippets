@@ -10,14 +10,23 @@ from bs4 import BeautifulSoup, NavigableString
 doc = BeautifulSoup(sys.stdin.read(), 'html.parser')
 post_content = (doc.select('body main article div[class="post-content"]')
                    .pop())
-code_blocks = post_content.select('figure[class="highlight"]')
+figure_highlight = post_content.select('figure[class="highlight"]')
 
-for code_block in code_blocks:
+for code_block in figure_highlight:
     code_block.name = 'div'
-    for code_el in code_block.select('pre code'):
-        for i in code_el.children:
-            if not isinstance(i, NavigableString) or '\n' not in str(i):
-                continue
-            i.replace_with(doc.new_tag('br'))
+
+for code_el in post_content.select('code'):
+    to_extract = []
+    for nStr in code_el.descendants:
+        _nStr = str(nStr)
+        if not isinstance(nStr, NavigableString) or '\n' not in _nStr:
+            continue
+        for s in _nStr:
+            newS = doc.new_tag('br') if s == '\n' else s
+            nStr.insert_before(newS)
+        to_extract.append(nStr)
+
+    for x in to_extract:
+        x.extract()
 
 print(post_content)
