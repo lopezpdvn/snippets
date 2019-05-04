@@ -3,36 +3,31 @@ layout: page
 title: home
 ---
 
-_ThenBy_: Use after earlier sorting, to further sort a collection in ascending
-order.
+{% highlight javascript %}
+'use strict'; const log = console.log; (async ()=>{
 
-This Lambda Expression sample first sorts array by string length of city capital, and then by alphabet.
+const splitStr = (str2Split, sep) => {
+  const arrOfStrs = str2Split.split(sep);
 
-{% highlight csharp %}
-string[] capitals = {
-    "Berlin", "Paris", "Madrid", "Tokyo", "London",
-    "Athens", "Beijing", "Seoul" };
+  log('The original str is: "' + str2Split + '"');
+  log('The sep is: "' + sep + '"');
+  log('The array has ' + arrOfStrs.length
+      + ' elements: ' + arrOfStrs.join(' / '));
+}
 
-var result = (from c in capitals
-              orderby c.Length
-              select c)
-             .ThenBy(c => c);
+const monthStr = 'Jan,Feb,Mar,Apr,May,Jun'
+               + ',Jul,Aug,Sep,Oct,Nov,Dec';
+const comma = ',';
 
-Debug.WriteLine("Ordered list of capitals, first by length and then alphabetical:");
-foreach (string capital in result)
-    Debug.WriteLine(capital);
+splitStr(monthStr, comma);
+
+})();
 {% endhighlight %}
 
-Output:
+Output
 
 ```
-Ordered list of capitals, first by length and then alphabetical:
-Paris
-Seoul
-Tokyo
-Athens
-Berlin
-London
-Madrid
-Beijing
+The original str is: "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec"
+The sep is: ","
+The array has 12 elements: Jan / Feb / Mar / Apr / May / Jun / Jul / Aug / Sep / Oct / Nov / Dec
 ```
