@@ -6,20 +6,12 @@ title: home
 {% highlight javascript %}
 'use strict'; const log = console.log; (async ()=>{
 
-const splitStr = (str2Split, sep) => {
-  const arrOfStrs = str2Split.split(sep);
-
-  log('The original str is: "' + str2Split + '"');
-  log('The sep is: "' + sep + '"');
-  log('The array has ' + arrOfStrs.length
-      + ' elements: ' + arrOfStrs.join(' / '));
-}
-
-const monthStr = 'Jan,Feb,Mar,Apr,May,Jun'
-               + ',Jul,Aug,Sep,Oct,Nov,Dec';
-const comma = ',';
-
-splitStr(monthStr, comma);
+const gen = function* () {};
+Promise.all(gen())
+.then(   () => log('5555'))
+.catch(  () => log('1111'))
+.finally(() => log('9999'));
+log('2222');
 
 })();
 {% endhighlight %}
@@ -27,7 +19,7 @@ splitStr(monthStr, comma);
 Output
 
 ```
-The original str is: "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec"
-The sep is: ","
-The array has 12 elements: Jan / Feb / Mar / Apr / May / Jun / Jul / Aug / Sep / Oct / Nov / Dec
+2222
+5555
+9999
 ```
