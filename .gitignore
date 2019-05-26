@@ -5,3 +5,5 @@ _site
 /bin/
 /out.html
 /.bundle
+*.o
+*.hi
