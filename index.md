@@ -3,24 +3,21 @@ layout: page
 title: home
 ---
 
-Let `pow2 n` be 2ⁿ, with simple conditionals
-
 {% highlight haskell %}
-module Main (main) where
+promptLine ∷ String -> IO String
+promptLine prompt = do
+    putStrLn prompt
+    getLine
+
+promptTwoLines ∷ String -> String -> IO String
+promptTwoLines prompt1 prompt2 = do
+    line1 <- promptLine prompt1
+    line2 <- promptLine prompt2
+    return (line1 ++ " and " ++ line2)
+
 main ∷ IO ()
-
-pow2 n =
-  if n == 0
-  then 1
-  else 2 * (pow2 (n-1))
-
-outStr = show (pow2 6)
-
-main = putStrLn outStr
+main = do
+    both <- promptTwoLines
+            "First line: " "Second line: "
+    putStrLn ("you said " ++ both)
 {% endhighlight %}
-
-Output
-
-```
-64
-```

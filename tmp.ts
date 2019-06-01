@@ -1,7 +1,10 @@
-'use strict'; const log = console.log; (async ()=>{
+'use strict'; const log =console.log; (async ()=>{
 
-const num0: number = 2;
-const x = num0 + 'some string';
-log(typeof x);
+const sqrIt = (rect: {h: number, w?: number}) =>
+  rect.h * (rect.w !== undefined ?
+            rect.w : rect.h);
+
+log(sqrIt({h: 2}));
+log(sqrIt({h: 2, w: 3}));
 
 })();

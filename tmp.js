@@ -1,10 +1,17 @@
 'use strict'; const log = console.log; (async ()=>{
 
-const gen = function* () {};
-Promise.all(gen())
-.then(   () => log('5555'))
-.catch(  () => log('1111'))
-.finally(() => log('9999'));
-log('2222');
+    static trickleDown(a, root, count) {
+        while(2*root + 1 < count) {
+            let child = 2*root + 1;
+            if(child + 1 < count && a[child] < a[child+1])
+                child++;
+            if(a[root] < a[child]) {
+                [a[root], a[child]] = [a[child], a[root]];
+                root = child;
+            }
+            else
+                return;
+        }
+    }
 
 })();

@@ -2,13 +2,18 @@
   <Output>DataGrids</Output>
 </Query>
 
-var x = new[] { 4, 1, 2, 2, 3, 1, 4, 2 };
-x
-.Aggregate(new HashSet<int>(),
-           (s, i) => { s.Add(i); return s; })
-.OrderBy(i => i)
-.Dump();
-//1
-//2
-//3
-//4
+//////////////////////////////////////////////////
+
+var fruits = new ArrayList()
+         {"Mango","Orange","Apple",3.0,"Banana"};
+
+var q = from word in fruits.OfType<string>()
+        where word.ToLower().Contains("n")
+        select word;
+
+foreach(var w in q) w.Dump();
+
+// The following strings contain 'n':
+// Mango
+// Orange
+// Banana
