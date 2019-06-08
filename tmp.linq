@@ -1,28 +1,18 @@
 <Query Kind="Program">
   <Output>DataGrids</Output>
+  <Namespace>System</Namespace>
+  <Namespace>System.Linq</Namespace>
+  <Namespace>System.Text</Namespace>
 </Query>
 
 //////////////////////////////////////////////////
-void Main() { SequenceEqualEx2(); }
-class Pet {
-  public string Name { get; set; }
-  public int Age { get; set; }
+static class StringExtension {
+  // This is called an extension method
+  internal static int WordCount(this string str) =>
+    str.Split(new[]{' '}).Length;
 }
 
-public static void SequenceEqualEx2()
-{
-  var pet1 = new Pet() { Name="Turbo", Age=2 };
-  var pet2 = new Pet() { Name="Peanut", Age=8 };
-  var pets1 = new List<Pet> { pet1, pet2 };
-  var pets2 = new List<Pet> {
-    new Pet { Name = "Turbo", Age = 2 },
-    new Pet { Name = "Peanut", Age = 8 } };
-  var pets3 = new[] {pet1, pet2};
-
-  bool eq0 = pets1.SequenceEqual(pets2);
-  ("pets1 and pets2 are " + (eq0 ? "" : "not ")
-    + "equal.").Dump();
-  var eq1 = pets3.SequenceEqual(pets1);
-  ("pets1 and pets3 are " + (eq1 ? "" : "not ")
-    + "equal.").Dump();
+void Main() { 
+  var s = "How many words are in this sentence?";
+  $"Word count of s is {s.WordCount()}".Dump();
 }

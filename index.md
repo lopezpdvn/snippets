@@ -3,16 +3,21 @@ layout: page
 title: home
 ---
 
-{% highlight haskell %}
-divideByTen ∷ (Floating a) => a -> a
-divideByTen = (/10)
+{% highlight csharp %}
+static class StringExtension {
+  // This is called an extension method
+  internal static int WordCount(this string str) =>
+    str.Split(new[]{' '}).Length;
+}
 
-y = divideByTen 950
-main = putStrLn (show y)
+void Main() {
+  var s = "How many words are in this sentence?";
+  $"Word count of s is {s.WordCount()}".Dump();
+}
 {% endhighlight %}
 
 Output
 
 ```
-95.0
+Word count of s is 7
 ```
