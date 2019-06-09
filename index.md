@@ -4,20 +4,20 @@ title: home
 ---
 
 {% highlight csharp %}
-static class StringExtension {
-  // This is called an extension method
-  internal static int WordCount(this string str) =>
-    str.Split(new[]{' '}).Length;
-}
+int[] A = {1, 2, 3}, B = {3, 4, 5};
 
-void Main() {
-  var s = "How many words are in this sentence?";
-  $"Word count of s is {s.WordCount()}".Dump();
-}
+// C = A ∪ B
+var C = A.Union(B);
+
+foreach(var i in C) i.Dump();
 {% endhighlight %}
 
 Output
 
 ```
-Word count of s is 7
+1
+2
+3
+4
+5
 ```
