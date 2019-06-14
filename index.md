@@ -4,20 +4,23 @@ title: home
 ---
 
 {% highlight csharp %}
-int[] A = {1, 2, 3}, B = {3, 4, 5};
+string[]
+  vegetables = { "Tomato", "Cucumber", "Carrot" },
+  fruits = { "Apples", "Grapes", "Banana" };
 
-// C = A ∪ B
-var C = A.Union(B);
+var result = vegetables.Concat(fruits);
 
-foreach(var i in C) i.Dump();
+foreach (var piece in result)
+  piece.Dump();
 {% endhighlight %}
 
 Output
 
 ```
-1
-2
-3
-4
-5
+Tomato
+Cucumber
+Carrot
+Apples
+Grapes
+Banana
 ```

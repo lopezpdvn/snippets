@@ -6,8 +6,9 @@
 </Query>
 
 //////////////////////////////////////////////////
-int[] A = {1, 2, 3}, B = {3, 4, 5};
-
-// C = A ∪ B
-var C = A.Union(B);
-foreach(var i in C) i.Dump();
+string[]
+  vegetables = { "Tomato", "Cucumber", "Carrot" },
+  fruits = { "Apples", "Grapes", "Banana" };
+var result = vegetables.Concat(fruits);
+foreach (var piece in result)
+  piece.Dump();
