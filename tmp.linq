@@ -6,9 +6,11 @@
 </Query>
 
 //////////////////////////////////////////////////
-string[]
-  vegetables = { "Tomato", "Cucumber", "Carrot" },
-  fruits = { "Apples", "Grapes", "Banana" };
-var result = vegetables.Concat(fruits);
-foreach (var piece in result)
-  piece.Dump();
+var nums = Enumerable.Range(1, 10);
+var q =
+  from x in nums.Select((e, i) => new { e, i })
+  where (x.e % 3 == 0 && x.i >= 5)
+  select x.e;
+
+foreach (int number in q)
+  q.Dump();

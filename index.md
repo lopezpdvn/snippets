@@ -4,23 +4,20 @@ title: home
 ---
 
 {% highlight csharp %}
-string[]
-  vegetables = { "Tomato", "Cucumber", "Carrot" },
-  fruits = { "Apples", "Grapes", "Banana" };
+var amounts = new[] { 5000, 2500, 9000, 8000,
+  6500, 4000, 1500, 5500 };
 
-var result = vegetables.Concat(fruits);
+var q = amounts.SkipWhile(
+  (amount, index) => amount > index * 1000);
 
-foreach (var piece in result)
-  piece.Dump();
+foreach (var amount in q) amount.Dump();
 {% endhighlight %}
 
-Output
+Start iteration until `index * 1000` is greater or equal than the element.
+
 
 ```
-Tomato
-Cucumber
-Carrot
-Apples
-Grapes
-Banana
+4000
+1500
+5500
 ```

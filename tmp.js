@@ -1,13 +1,11 @@
 'use strict'; const log = console.log; (async ()=>{
 
-const resolvedProm = Promise.resolve(33);
+let x, n = 8;
 
-const thenProm =
-  resolvedProm.then(val =>
-    (log(`asynchly called, val: ${val}`), val));
+// Why does this...
+x = new Array(n).fill(undefined);
 
-log(thenProm);
-
-setTimeout(log, 0, thenProm);
+// work and is the same as... ?
+x = (new Array(n)).fill(undefined);
 
 })();
