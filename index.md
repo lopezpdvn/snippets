@@ -4,20 +4,19 @@ title: home
 ---
 
 {% highlight csharp %}
-var amounts = new[] { 5000, 2500, 9000, 8000,
-  6500, 4000, 1500, 5500 };
+var nums = Enumerable.Range(1, 10);
+var q =
+  from x in nums.Select((e, i) => new { e, i })
+  where (x.e % 3 == 0 && x.i >= 5)
+  select x.e;
 
-var q = amounts.SkipWhile(
-  (amount, index) => amount > index * 1000);
-
-foreach (var amount in q) amount.Dump();
+foreach (int number in q)
+  q.Dump();
 {% endhighlight %}
 
-Start iteration until `index * 1000` is greater or equal than the element.
-
+Numbers divisible by 3 and indexed >= 5:
 
 ```
-4000
-1500
-5500
+6
+9
 ```
