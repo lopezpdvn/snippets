@@ -4,19 +4,24 @@ title: home
 ---
 
 {% highlight csharp %}
-var nums = Enumerable.Range(1, 10);
-var q =
-  from x in nums.Select((e, i) => new { e, i })
-  where (x.e % 3 == 0 && x.i >= 5)
-  select x.e;
+int[] A, B;
+A = B = new[] {1, 2};
 
-foreach (int number in q)
-  q.Dump();
+// A × B
+var q =
+  from a in A
+  from b in B
+  select new {a, b};
+  
+foreach (var i in q)
+  $"({i.a}, {i.b})".Dump();
 {% endhighlight %}
 
-Numbers divisible by 3 and indexed >= 5:
+Output
 
 ```
-6
-9
+(1, 1)
+(1, 2)
+(2, 1)
+(2, 2)
 ```
