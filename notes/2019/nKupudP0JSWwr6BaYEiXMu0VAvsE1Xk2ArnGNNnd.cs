@@ -6,12 +6,13 @@
 </Query>
 
 //////////////////////////////////////////////////
-var fruits = new ArrayList()
+IEnumerable fruits = new ArrayList()
          {"Mango","Orange","Apple",3.0,"Banana"};
 
-var q = from word in fruits.OfType<string>()
-        where word.ToLower().Contains("n")
-        select word;
+IEnumerable<string> q =
+  from word in fruits.OfType<string>()
+  where word.ToLower().Contains("n")
+  select word;
 
-foreach (var w in q)
+foreach (string w in q)
   w.Dump();
