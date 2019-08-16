@@ -4,7 +4,15 @@ title: how to
 permalink: /how-to/
 ---
 
-1. Add card of note type that supports cloze deletion with code blocks.
+## Setup
+
+1. Using the Jekyll theme of your choice, render the site and copy the CSS
+   styling from it to an Anki note type that you will use for your cards.
+
+## Create notes
+
+1. Add card of note type that supports cloze deletion with code blocks (please
+   see [Setup](#setup)).
 1. Enter dummy cloze and add card
 1. Open in browser
 1. Edit jekyll source file
