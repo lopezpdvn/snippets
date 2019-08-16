@@ -28,10 +28,10 @@ public static void A0() {
   $"|packages| = {packages.Count()}\n".Dump();
 
   // q :: ILookup<char, anonymous type>
+  // p :: Package
   var q =
     packages.ToLookup(
-      p => Convert.ToChar(
-             p.Company.Substring(0, 1)),
+      p => p.Company?.FirstOrDefault(),
       p => new { p.Company, p.TrackNum});
 
   // x :: IGrouping<char, anonymous type>
