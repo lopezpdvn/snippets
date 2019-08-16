@@ -1,6 +1,7 @@
 ---
 layout: page
 title: home
+permalink: /
 ---
 
 {% highlight csharp %}
