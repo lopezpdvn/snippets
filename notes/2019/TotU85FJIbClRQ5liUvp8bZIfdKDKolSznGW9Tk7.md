@@ -3,6 +3,8 @@ layout: page
 title: home
 ---
 
+Explain graph breadth first traversal.
+
 {% highlight javascript %}
 'use strict'; const log = console.log; (async ()=>{
 

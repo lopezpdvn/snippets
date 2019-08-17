@@ -3,6 +3,8 @@ layout: page
 title: home
 ---
 
+Explain binary tree post order depth first traversal.
+
 {% highlight javascript %}
 'use strict'; const log = console.log; (async ()=>{
 
