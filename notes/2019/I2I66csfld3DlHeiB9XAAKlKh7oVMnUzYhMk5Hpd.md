@@ -3,6 +3,8 @@ layout: page
 title: home
 ---
 
+Explain insertion sort for array sorting.
+
 {% highlight javascript %}
 'use strict'; const log = console.log; (async ()=>{
 
