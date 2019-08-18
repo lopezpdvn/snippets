@@ -1,2 +1,2 @@
 slug:
-	@python3 scripts/slug-html.py <_site/index.html > out.html
+	@python3 scripts/slug-html.py <_site/note/index.html > out.html

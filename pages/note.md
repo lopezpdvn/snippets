@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Note
-permalink: /note
+permalink: /note/
 ---
 
 {% highlight csharp %}
