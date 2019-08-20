@@ -1,3 +1,4 @@
-data Shape = Circle Float Float Float
-  | Rectangle Float Float Float Float
+data Shape =
+  Circle Float Float Float |
+  Rectangle Float Float Float Float
 main = return ()
