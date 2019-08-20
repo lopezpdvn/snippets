@@ -7,4 +7,4 @@ _site
 /.bundle
 *.o
 *.hi
-/tmp
+/src/tmp
