@@ -11,7 +11,7 @@ int[] x = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 // Query syntax
 var result0 =
   from n in x.Select((e, i) => (e, i))
-  where (n.e % 3 == 0 && n.i >= 5)
+  where n.e % 3 == 0 && n.i >= 5
   select n.e;
 
 foreach (var number in result0)
