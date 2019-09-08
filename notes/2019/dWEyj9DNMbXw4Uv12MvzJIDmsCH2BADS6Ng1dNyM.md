@@ -3,7 +3,7 @@ layout: page
 title: home
 ---
 
-Explain binary tree post order depth first traversal.
+Explain binary tree post order depth first traversal iterative.
 
 {% highlight javascript %}
 'use strict'; const log = console.log; (async ()=>{
