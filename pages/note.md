@@ -4,24 +4,19 @@ title: Note
 permalink: /note/
 ---
 
-{% highlight csharp %}
-// one line
-(int first, int second)[] x = new[]
-          { (1, 2), (3, 4), (5, 6), (7, 8) };
+`isSubtree`
 
-string[] q =
-  (from e in x
-   select $"({e.first}, {e.second})")
-  .ToArray();
-        
-foreach(string s in q) s.Dump();
+{% highlight javascript %}
+const isSubtree = (s, t) =>
+  s !== null && (equals(s, t)          ||
+                 isSubtree(s.left , t) ||
+                 isSubtree(s.right, t));
+
+const equals = (x, y) => {
+  if(!x && !y) return true;
+  if(!x || !y) return false;
+  return x.val === y.val          &&
+         equals(x.left , y.left ) &&
+         equals(x.right, y.right);
+};
 {% endhighlight %}
-
-Output
-
-```
-(1, 2)
-(3, 4)
-(5, 6)
-(7, 8)
-```
