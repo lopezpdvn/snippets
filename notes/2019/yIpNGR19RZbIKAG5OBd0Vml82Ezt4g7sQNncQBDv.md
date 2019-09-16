@@ -8,23 +8,24 @@ Explain the non-recursive portion of quick sort.
 
 {% highlight java %}
 public static int partition(
-                int[] arr, int left, int right) {
+  int[] arr, int left, int right) {
   int pivot = arr[left + (right - left) / 2];
-  
+
+   // Until we've gone through the whole array
   while (left <= right) {
-    // Find element on L that should be on R
+    // Find element on left that should be on right
     while (arr[left] < pivot) left++;
-    
-    // Find element on R that should be on L
+
+    // Find element on right that should be on left
     while (arr[right] > pivot) right--;
-    
-    // Swap elements, and move L & F indices
+
+    // Swap elements, and move left and right indices
     if (left <= right) {
       swap(arr, left, right);
       left++;
       right--;
     }
   }
-  return left; 
+  return left;
 }
 {% endhighlight %}
