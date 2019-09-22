@@ -11,6 +11,8 @@ const f =
   (msg: string) : never =>
     { throw new Error(msg); }
 
+f('hey');
+
 })();
 {% endhighlight %}
 
