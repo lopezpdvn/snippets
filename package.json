@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "description": "anki-jekyll",
   "main": "tmp.js",
-  "dependencies": {
-    "typescript": "^3.5.3"
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "latest"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

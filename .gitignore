@@ -8,3 +8,4 @@ _site
 *.o
 *.hi
 /src/tmp
+node_modules/
