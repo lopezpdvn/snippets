@@ -1,6 +1,7 @@
 ---
 layout: page
-title: home
+title: Note
+permalink: /note/
 ---
 
 {% highlight csharp %}
@@ -20,8 +21,11 @@ var p = (from b in B
         .ToHashSet();
 
 var neq = q.SetEquals(p) ? "=" : "≠";
-
 $"A {neq} B".Dump();
+
+neq = q.SequenceEqual(p) ? "=" : "≠";
+$"A {neq} B".Dump();
+
 $"|A × B| = {q.Count()}".Dump();
 $"|B × A| = {p.Count()}".Dump();
 {% endhighlight %}
@@ -29,6 +33,7 @@ $"|B × A| = {p.Count()}".Dump();
 Output
 
 ```
+A = B
 A = B
 |A × B| = 0
 |B × A| = 0

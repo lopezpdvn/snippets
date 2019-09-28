@@ -22,7 +22,10 @@ var p = (from b in B
         .ToHashSet();
 
 var neq = q.SetEquals(p) ? "=" : "≠";
-
 $"A {neq} B".Dump();
+
+neq = q.SequenceEqual(p) ? "=" : "≠";
+$"A {neq} B".Dump();
+
 $"|A × B| = {q.Count()}".Dump();
 $"|B × A| = {p.Count()}".Dump();
