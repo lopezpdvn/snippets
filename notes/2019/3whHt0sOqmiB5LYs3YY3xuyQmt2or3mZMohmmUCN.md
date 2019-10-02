@@ -3,6 +3,8 @@ layout: page
 title: home
 ---
 
+Explain selection sort algorithm for array sorting
+
 {% highlight javascript %}
 'use strict'; const log = console.log; (async ()=>{
 
