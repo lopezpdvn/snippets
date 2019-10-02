@@ -20,8 +20,8 @@ Output
 ```
 (node:28531) UnhandledPromiseRejectionWarning:
 TypeError: x.keys(...).forEach is not a function
-  at /mnt/fd/75/89/id/73/38/proj/2019/anki-jekyll/src/tmp.js:6:10
-  at Object.<anonymous> (/mnt/fd/75/89/id/73/38/proj/2019/anki-jekyll/src/tmp.js:8:3)
+  at tmp.js:6:10
+  at Object.<anonymous> (tmp.js:8:3)
 ...
 ```
 
