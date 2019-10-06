@@ -4,6 +4,8 @@ title: Note
 permalink: /note/
 ---
 
+Explain Binary Search recursive algorithm
+
 {% highlight javascript %}
 'use strict'; const log = console.log; (async ()=>{
 
