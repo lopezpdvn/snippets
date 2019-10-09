@@ -29,3 +29,8 @@ permalink: /how-to/
 1. Copy all to Anki's _Text_ field on browser
 1. Add cloze deletions to field *Text*.
 1. Add fields *Hint*, *Extra*, *Tags*.
+
+## Fix notes
+
+1. Open the note field in the HTML editor, and make sure that cloze deletions
+   do not span multiple lines characters, use `br` elements instead.
