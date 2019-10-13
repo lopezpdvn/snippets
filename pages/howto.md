@@ -34,3 +34,6 @@ permalink: /how-to/
 
 1. Open the note field in the HTML editor, and make sure that cloze deletions
    do not span multiple lines characters, use `br` elements instead.
+1. Open the note field in the HTML editor and make sure that `div` elements
+   with class `highlight` do not span multiple lines. Use `br` elements
+   instead.
