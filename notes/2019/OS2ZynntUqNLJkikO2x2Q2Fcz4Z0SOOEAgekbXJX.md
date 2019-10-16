@@ -26,3 +26,8 @@ const climbStairs = n => {
 
 })();
 {% endhighlight %}
+
+## Complexity
+
+- Time: O(2ⁿ)
+- Space: O(n)
