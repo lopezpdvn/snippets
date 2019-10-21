@@ -20,3 +20,9 @@ const equals = (x, y) => {
          equals(x.right, y.right);
 };
 {% endhighlight %}
+
+### Complexity analysis
+
+- Time complexity : `O(m*n)`. In worst case (skewed tree) `isSubtree` function.
+- Space complexity : `O(n)`. The depth of the recursion tree can go upto `n`.
+  `n` refers to the number of nodes in `s`.
