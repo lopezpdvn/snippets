@@ -9,3 +9,4 @@ _site
 *.hi
 /src/tmp
 node_modules/
+src/module_0.js
