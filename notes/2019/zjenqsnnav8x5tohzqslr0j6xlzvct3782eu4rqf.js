@@ -1,21 +1,21 @@
 'use strict'; const log = console.log; (async ()=>{
 
 const isSameTree = (p, q) => {
-  const deqP = [p], deqQ = [q];
+  const queueP = [p], queueQ = [q];
 
-  while(deqP.length) {
-    const p = deqP.shift(), q = deqQ.shift();
+  while(queueP.length) {
+    const p = queueP.shift(), q = queueQ.shift();
     if(!check(p, q))
       return false;
     if(!p || !q)
       continue;
     if(p.left || q.left) {
-      deqP.push(p.left);
-      deqQ.push(q.left);
+      queueP.push(p.left);
+      queueQ.push(q.left);
     }
     if(p.right || q.right) {
-      deqP.push(p.right);
-      deqQ.push(q.right);
+      queueP.push(p.right);
+      queueQ.push(q.right);
     }
   }
   return true;
