@@ -1,7 +1,10 @@
-'use strict'; const log =console.log; (async ()=>{
+import { StrVal } from './module_1';
 
-const greetMe: (msg: string) => void;
-greetMe = msg => log(msg);
-greetMe("hello world");
+export const numberRegexp = /^[0-9]+$/;
 
-})();
+export class ZipCodeValidator implements StrVal {
+  isAcceptable(s: string) {
+    return s.length === 5 &&
+           numberRegexp.test(s);
+  }
+}

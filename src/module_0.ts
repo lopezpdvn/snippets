@@ -1,3 +1,3 @@
-export interface StringValidator {
+export interface StrValidator {
   isAcceptable(s: string): boolean;
 }
