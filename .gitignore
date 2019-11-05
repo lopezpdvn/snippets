@@ -10,3 +10,4 @@ _site
 /src/tmp
 node_modules/
 src/module_0.js
+src/module_1.js
