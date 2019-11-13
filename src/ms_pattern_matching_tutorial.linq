@@ -22,7 +22,7 @@
 
 namespace toll_calculator {
 public class TollCalculator {
-  public decimal CalculateToll(object vehicle) =>
+  public decimal CalcToll(object vehicle) =>
     vehicle switch {
       Car c => c.Passengers switch {
         0 => 2.00m + 0.5m,
@@ -65,7 +65,7 @@ public class TollCalculator {
        GetTimeBand(timeOfToll), inbound) switch {
         (true, TimeBand.Overnight,   _)  => 0.75m,
         (true, TimeBand.Daytime,     _)  => 1.5m,
-        (true, TimeBand.Morning, true)   => 2.0m,
+        (true, TimeBand.Morning, true)   => 2.0m, 
         (true, TimeBand.Evening, false)  => 2.0m,
         (_,    _,                    _)  => 1.0m,
       };
@@ -142,105 +142,96 @@ class Program {
     var singleFare = new Taxi { Fares = 1 };
     var doubleFare = new Taxi { Fares = 2 };
     var fullVanPool = new Taxi { Fares = 5 };
-    var lowOccupantBus = new Bus { Capacity = 90, Riders = 15 };
-    var normalBus = new Bus { Capacity = 90, Riders = 75 };
-    var fullBus = new Bus { Capacity = 90, Riders = 85 };
+    var lowOccupantBus = new Bus { Capacity = 90,
+                                   Riders   = 15 };
+    var normalBus = new Bus { Capacity = 90,
+                              Riders   = 75 };
+    var fullBus = new Bus { Capacity = 90,
+                              Riders = 85 };
+    var heavyTruck = new DeliveryTruck {
+                        GrossWeightClass = 7500 };
+    var truck = new DeliveryTruck {
+                        GrossWeightClass = 4000 };
+    var lightTruck = new DeliveryTruck {
+                        GrossWeightClass = 2500 };
 
-    var heavyTruck = new DeliveryTruck { GrossWeightClass = 7500 };
-    var truck = new DeliveryTruck { GrossWeightClass = 4000 };
-    var lightTruck = new DeliveryTruck { GrossWeightClass = 2500 };
+    $"Toll 4 solo driver = {tollCalc.CalcToll(soloDriver)}".Dump();
+    $"Toll 4 two ride share = {tollCalc.CalcToll(twoRideShr)}".Dump();
+    $"Toll 4 three ride share = {tollCalc.CalcToll(threeRideShr)}".Dump();
+    $"Toll 4 fullVan = {tollCalc.CalcToll(fullVan)}".Dump();
 
-    Console.WriteLine($"The toll for a solo driver is {tollCalc.CalculateToll(soloDriver)}");
-    Console.WriteLine($"The toll for a two ride share is {tollCalc.CalculateToll(twoRideShr)}");
-    Console.WriteLine($"The toll for a three ride share is {tollCalc.CalculateToll(threeRideShr)}");
-    Console.WriteLine($"The toll for a fullVan is {tollCalc.CalculateToll(fullVan)}");
+    $"Toll 4  empty taxi = {tollCalc.CalcToll(emptyTaxi)}".Dump();
+    $"Toll 4 single fare taxi = {tollCalc.CalcToll(singleFare)}".Dump();
+    $"Toll 4 double fare taxi = {tollCalc.CalcToll(doubleFare)}".Dump();
+    $"Toll 4 full van taxi = {tollCalc.CalcToll(fullVanPool)}".Dump();
 
-    Console.WriteLine($"The toll for an empty taxi is {tollCalc.CalculateToll(emptyTaxi)}");
-    Console.WriteLine($"The toll for a single fare taxi is {tollCalc.CalculateToll(singleFare)}");
-    Console.WriteLine($"The toll for a double fare taxi is {tollCalc.CalculateToll(doubleFare)}");
-    Console.WriteLine($"The toll for a full van taxi is {tollCalc.CalculateToll(fullVanPool)}");
+    $"Toll 4 low-occupant bus = {tollCalc.CalcToll(lowOccupantBus)}".Dump();
+    $"Toll 4 regular bus = {tollCalc.CalcToll(normalBus)}".Dump();
+    $"Toll 4 bus = {tollCalc.CalcToll(fullBus)}".Dump();
 
-    Console.WriteLine($"The toll for a low-occupant bus is {tollCalc.CalculateToll(lowOccupantBus)}");
-    Console.WriteLine($"The toll for a regular bus is {tollCalc.CalculateToll(normalBus)}");
-    Console.WriteLine($"The toll for a bus is {tollCalc.CalculateToll(fullBus)}");
+    $"Toll 4 truck = {tollCalc.CalcToll(heavyTruck)}".Dump();
+    $"Toll 4 truck = {tollCalc.CalcToll(truck)}".Dump();
+    $"Toll 4 truck = {tollCalc.CalcToll(lightTruck)}".Dump();
 
-    Console.WriteLine($"The toll for a truck is {tollCalc.CalculateToll(heavyTruck)}");
-    Console.WriteLine($"The toll for a truck is {tollCalc.CalculateToll(truck)}");
-    Console.WriteLine($"The toll for a truck is {tollCalc.CalculateToll(lightTruck)}");
-
-    try
-    {
-        tollCalc.CalculateToll("this will fail");
+    try {
+      tollCalc.CalcToll("this will fail");
     }
-    catch (ArgumentException)
-    {
-        Console.WriteLine("Caught an argument exception when using the wrong type");
+    catch (ArgumentException) {
+      Console.WriteLine("Caught an argument exception when using the wrong type");
     }
-    try
-    {
-        tollCalc.CalculateToll(null);
+    try {
+      tollCalc.CalcToll(null);
     }
-    catch (ArgumentNullException)
-    {
-        Console.WriteLine("Caught an argument exception when using null");
+    catch (ArgumentNullException) {
+      Console.WriteLine("Caught an argument exception when using null");
     }
 
     Console.WriteLine("Testing the time premiums");
 
-    var testTimes = new DateTime[]
-    {
-        new DateTime(2019, 3, 4, 8, 0, 0), // morning rush
-        new DateTime(2019, 3, 6, 11, 30, 0), // daytime
-        new DateTime(2019, 3, 7, 17, 15, 0), // evening rush
-        new DateTime(2019, 3, 14, 03, 30, 0), // overnight
+    var testTimes = new DateTime[] {
+      new DateTime(2019, 3, 4, 8, 0, 0), // morning rush
+      new DateTime(2019, 3, 6, 11, 30, 0), // daytime
+      new DateTime(2019, 3, 7, 17, 15, 0), // evening rush
+      new DateTime(2019, 3, 14, 03, 30, 0), // overnight
 
-        new DateTime(2019, 3, 16, 8, 30, 0), // weekend morning rush
-        new DateTime(2019, 3, 17, 14, 30, 0), // weekend daytime
-        new DateTime(2019, 3, 17, 18, 05, 0), // weekend evening rush
-        new DateTime(2019, 3, 16, 01, 30, 0), // weekend overnight
+      new DateTime(2019, 3, 16, 8, 30, 0), // weekend morning rush
+      new DateTime(2019, 3, 17, 14, 30, 0), // weekend daytime
+      new DateTime(2019, 3, 17, 18, 05, 0), // weekend evening rush
+      new DateTime(2019, 3, 16, 01, 30, 0), // weekend overnight
     };
 
-    foreach (var time in testTimes)
-    {
-        Console.WriteLine($"Inbound premium at {time} is {tollCalc.PeakTimePremiumFull(time, true)}");
-        Console.WriteLine($"Outbound premium at {time} is {tollCalc.PeakTimePremiumFull(time, false)}");
+    foreach (var time in testTimes) {
+      Console.WriteLine($"Inbound premium at {time} is {tollCalc.PeakTimePremiumFull(time, true)}");
+      Console.WriteLine($"Outbound premium at {time} is {tollCalc.PeakTimePremiumFull(time, false)}");
     }
     Console.WriteLine("====================================================");
-    foreach (var time in testTimes)
-    {
-        Console.WriteLine($"Inbound premium at {time} is {tollCalc.PeakTimePremium(time, true)}");
-        Console.WriteLine($"Outbound premium at {time} is {tollCalc.PeakTimePremium(time, false)}");
+    foreach (var time in testTimes) {
+      Console.WriteLine($"Inbound premium at {time} is {tollCalc.PeakTimePremium(time, true)}");
+      Console.WriteLine($"Outbound premium at {time} is {tollCalc.PeakTimePremium(time, false)}");
     }
   }
 }
 }
 
-namespace ConsumerVehicleRegistration
-{
-    public class Car
-    {
-        public int Passengers { get; set; }
-    }
+namespace ConsumerVehicleRegistration {
+  public class Car {
+    public int Passengers { get; set; }
+  }
 }
 
-namespace CommercialRegistration
-{
-    public class DeliveryTruck
-    {
-        public int GrossWeightClass { get; set; }
-    }
+namespace CommercialRegistration {
+  public class DeliveryTruck {
+    public int GrossWeightClass { get; set; }
+  }
 }
 
-namespace LiveryRegistration
-{
-    public class Taxi
-    {
-        public int Fares { get; set; }
-    }
+namespace LiveryRegistration {
+  public class Taxi {
+    public int Fares { get; set; }
+  }
 
-    public class Bus
-    {
-        public int Capacity { get; set; }
-        public int Riders { get; set; }
-    }
+  public class Bus {
+    public int Capacity { get; set; }
+    public int Riders { get; set; }
+  }
 }
