@@ -29,4 +29,5 @@ for code_el in post_content.select('code'):
     for x in to_extract:
         x.extract()
 
-print(post_content)
+post_content_display = str(post_content).replace('\n', '')
+print(post_content_display)
