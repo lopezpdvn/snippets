@@ -8,7 +8,6 @@ var x = new[] {'a', 'a', 'a', 'b', 'b', 'c'};
 // Let y be a frequency counter.
 var y =
   x.ToLookup(
-    x => x,
     x => x);
 
 foreach (var e in y) {
