@@ -8,7 +8,7 @@ const x = new Map([
 let y;
 
 // 1 line
-const z = (y = x.get('zero'));
+const z = y = x.get('zero');
 
 log(y);
 log(z);
