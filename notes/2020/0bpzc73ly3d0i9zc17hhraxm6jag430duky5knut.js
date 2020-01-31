@@ -6,8 +6,7 @@ const y = {...x};  // one line
 
 const xEqualY =
   Object.keys(x)
-    .map(   k => [x[k], y[k]] )
-    .reduce(c => c[0] === c[1]);
+    .every(k => x[k] === y[k]);
 
 log(x);
 log(y);
