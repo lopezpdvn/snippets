@@ -11,6 +11,7 @@ void Main() {
   Display("Fat"     , "Yoshi", false).Dump();
   Display("Sasha"   , "Obama", true ).Dump();
   Display("Barack"  , "Smith", true ).Dump();
+  Display("Bruce"   , "Wayne", false).Dump();
 }
 
 // Below is called positional pattern matching
@@ -35,3 +36,4 @@ static string Display(string first, string last,
 // Fat Yoshi unreal
 // Relative
 // Shares name
+// Bruce Wayne unreal
