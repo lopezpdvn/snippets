@@ -1,14 +1,6 @@
-_site
-.sass-cache
-.jekyll-metadata
 .*swp
 /bin/
-/out.html
-/.bundle
 *.o
 *.hi
 *.d.ts
-/src/tmp
-node_modules/
-src/module_0.js
-src/module_1.js
+/tmp/

@@ -1,3 +1,0 @@
-# TODO
-
-- Fix HOWTO page.

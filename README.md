@@ -1,8 +1,13 @@
-# anki-jekyll
+# snippets
 
-Install
+Code snippets in multiple languages.
 
-```bash
-$ pip install --user --upgrade pip
-$ pip install --user bs4
-```
+- JavaScript
+- TypeScript
+- C#
+- Python
+- Java
+- Haskell
+- SQL
+
+By [Pedro Ivan Lopez](http://pedroivanlopez.com).
