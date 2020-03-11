@@ -2,7 +2,10 @@
   "name": "snippets",
   "version": "0.1.0",
   "description": "Code snippets in multiple languages",
-  "main": "index.js",
+  "main": "",
+  "devDependencies": {
+    "typescript": "latest"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
