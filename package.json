@@ -1,0 +1,19 @@
+{
+  "name": "snippets",
+  "version": "0.1.0",
+  "description": "Code snippets in multiple languages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lopezpdvn/snippets.git"
+  },
+  "author": "Pedro Ivan Lopez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lopezpdvn/snippets/issues"
+  },
+  "homepage": "https://github.com/lopezpdvn/snippets#readme"
+}
