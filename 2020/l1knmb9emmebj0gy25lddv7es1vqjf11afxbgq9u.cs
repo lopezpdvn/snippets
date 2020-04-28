@@ -5,17 +5,14 @@
 //////////////////////////////////////////////////
 var x = new[] {'a', 'b', 'a', 'b', 'a', 'c'};
 
-// Let y be a frequency counter in query syntax
-var y =
+// y is multiset/freq-counter in query syntax
+IEnumerable<(char e, int count)> y =
   from e in x
   group e by e into g
-  select g;
+  select (g.Key, g.Count());
 
-foreach (var e in y) {
-  var key = e.Key;
-  var count = e.Count();
-  $"{key}: {count}".Dump();
-}
+foreach (var t in y)
+  $"{t.e}: {t.count}".Dump();
 
 // a: 3
 // b: 2
