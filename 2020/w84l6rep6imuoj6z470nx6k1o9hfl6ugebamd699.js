@@ -19,7 +19,12 @@ class Graph {
 
   topologicalSort() {
     this.buildInDegrees();
-    log(this.inDegs);
+
+    const sourcesQueue = this.inDegs.reduce(
+      (a, inDeg, vertex) =>
+        inDeg ? a : a.concat(vertex),
+      []);
+    log(sourcesQueue);
   }
 
   buildInDegrees() {
@@ -35,6 +40,6 @@ const g = new Graph(6).addEdge(5, 2).addEdge(5, 0)
 
 log(g);
 const y = g.topologicalSort();
-log(y);
+//log(y);
 
 })();
