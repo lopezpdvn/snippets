@@ -3,18 +3,16 @@
 </Query>
 
 //////////////////////////////////////////////////
-var x = new[] {'a', 'a', 'a', 'b', 'b', 'c'};
+var x = new[] { 'a', 'a', 'a', 'b', 'b', 'c' };
+// order of elements in array does not matter
 
 // Let y be a frequency counter.
 var y =
-  x.ToLookup(
-    x => x);
+  x.ToLookup(x => x)
+   .Select  (x => (x.Key, Count: x.Count()));
 
-foreach (var e in y) {
-  var key = e.Key;
-  var count = e.Count();
-  $"{key}: {count}".Dump();
-}
+foreach (var e in y)
+  $"{e.Key}: {e.Count}".Dump();
 
 // a: 3
 // b: 2
