@@ -4,9 +4,9 @@
 
 //////////////////////////////////////////////////
 class Person {
-  public string FirstName { get; set; }
+  public string FirstName  { get; set; }
   public string MiddleName { get; set; }
-  public string LastName { get; set; }
+  public string LastName   { get; set; }
 
   public Person(
     string fname, string mname, string lname) {
@@ -15,8 +15,7 @@ class Person {
 
   public void Deconstruct(
     out string fname, out string lname) {
-    fname = FirstName;
-    lname = LastName; }
+    (fname, lname) = (FirstName, LastName);} 
 }
 void Main() {
   var p = new Person("Pedro", "Ivan", "Lopez");
