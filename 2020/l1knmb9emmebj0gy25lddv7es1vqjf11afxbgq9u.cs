@@ -6,10 +6,10 @@
 var x = new[] {'a', 'b', 'a', 'b', 'a', 'c'};
 
 // y is multiset/freq-counter in query syntax
-IEnumerable<(char e, int count)> y =
+var y =
   from e in x
   group e by e into g
-  select (g.Key, g.Count());
+  select (e: g.Key, count: g.Count());
 
 foreach (var t in y)
   $"{t.e}: {t.count}".Dump();
