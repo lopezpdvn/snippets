@@ -3,7 +3,7 @@
 // sum of digits of base-10 integer
 
 const f = x => {
-  x = Math.abs(x);
+  x = Math.trunc(Math.abs(x));
   let sum = 0;
 
   while(x > 0) {
@@ -14,7 +14,7 @@ const f = x => {
   return sum;
 };
 
-const X = [12, 0, 9202, -9202];
+const X = [12.2, 0, 9202, -9202];
 X.forEach(x => log(f(x)));
 
 // 3
