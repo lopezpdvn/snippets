@@ -1,7 +1,7 @@
 'use strict'; const log = console.log; (async ()=>{
 
-// Given nonempty arr of non-negative ints, find
-// length of shortest subarr w/ same degree as arr
+Given nonempty arr of non-negative ints, find
+length of shortest subarr w/ same degree as arr
 
 const f = A => {
   const left = new Map(), right = new Map(),
@@ -20,7 +20,7 @@ const f = A => {
     if(count === degree) {
       ans = Math.min(ans,
 
-        // degree of subarr containing all e's
+        // length of subarr containing all e's
         right.get(e) - left.get(e) + 1);
 
     }
