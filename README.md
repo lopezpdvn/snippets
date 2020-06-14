@@ -9,5 +9,6 @@ Code snippets in multiple languages.
 - Java
 - Haskell
 - SQL
+- C
 
 By [Pedro Ivan Lopez](http://pedroivanlopez.com).
