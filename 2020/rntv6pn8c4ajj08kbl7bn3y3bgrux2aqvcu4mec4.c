@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <string.h>
 
 void displayMatrix(int m, int n, char x[m][n]) {
   for(int i = 0; i < m; i++) {
