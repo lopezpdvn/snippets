@@ -6,7 +6,7 @@ x = 'aa'
 m = len(x)
 n = 3
 
-y = tuple(product(x, repeat=n))
+y = (*product(x, repeat=n),)
 
 print('|y| = {0}'.format(len(y)), end='\n\n')
 
