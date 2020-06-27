@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-void displayMatrix(int m, int n, char x[m][n]) {
-  for(int i = 0; i < m; i++) {
-    for(int j = 0; j < n; j++) {
+void displayMatrix(int a, int b, char x[a][b]) {
+  for(int i = 0; i < a; i++) {
+    for(int j = 0; j < b; j++) {
       printf("%c ", x[i][j]);
     }
     printf("\n");
