@@ -10,5 +10,6 @@ Code snippets in multiple languages.
 - Haskell
 - SQL
 - C
+- Windows Batch
 
 By [Pedro Ivan Lopez](http://pedroivanlopez.com).
