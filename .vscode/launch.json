@@ -5,10 +5,22 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "java",
-      "name": "Debug (Launch) - Current File",
+      "type": "node",
       "request": "launch",
-      "mainClass": "${file}"
+      "name": "Launch Program",
+      "program": "${workspaceFolder}/tmp/tmp.js",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Attach",
+      "port": 9229,
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
     }
   ]
 }
