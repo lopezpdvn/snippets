@@ -4,7 +4,7 @@
   "description": "Code snippets in multiple languages",
   "main": "",
   "devDependencies": {
-    "typescript": "latest"
+    "typescript": "^3.9.6"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
