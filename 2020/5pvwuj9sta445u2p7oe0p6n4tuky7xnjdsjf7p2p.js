@@ -14,11 +14,11 @@ const decodings = s => {
   if(!s) return [];
   const n = s.length;
   const memo = new Array(n+1);
-  const a = g(n, s, memo);
+  const a = _g(n, s, memo);
   return memo;
 };
 
-const g = function f(i, s, memo) {
+const _g = function g(i, s, memo) {
   if(i < -1 || s[i] === '0') return [];
   if(i === 0) {
     const x = [dict[parseInt(s[i])]];
@@ -31,7 +31,7 @@ const g = function f(i, s, memo) {
   }
 
   if(!memo[i]) {
-    memo[i] = f(i - 1, s, memo);
+    memo[i] = g(i - 1, s, memo);
 
     if(i > 1) {
       const digit2 = parseInt(s.slice(i-2, i));
@@ -40,7 +40,7 @@ const g = function f(i, s, memo) {
         log(memo);
         //log(i);
         //log(digit2);
-        memo[i] = memo[i].concat(f(i - 2, s, memo));
+        memo[i] = memo[i].concat(g(i - 2, s, memo));
         //memo[i] = memo[i].concat(dict[digit2]);
       }
     }
