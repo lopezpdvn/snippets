@@ -8,18 +8,18 @@ Ex1: '12'  -> 'AB', 'L'
 Ex2: '226' -> 'BZ', 'VF' or 'BBF'
 
 decodings :: String -> [String]                 */
-const decodings = s => {
+const decodings = function* (s) {
   if(s === undefined || s === null)
     throw new Error();
-  if(!s) return [];
-  const n = s.length;
-  const memo = new Array(n+1);
-  const a = _g(n, s, memo);
-  return memo;
+  yield* _g(s);
 };
 
-const _g = function g(i, s, memo) {
-  if(i < -1 || s[i] === '0') return [];
+const _g = function* g(i, s, memo) {
+  if(!s) {
+    yield [];
+    return;
+  }
+
   if(i === 0) {
     const x = [dict[parseInt(s[i])]];
     const digit2 = parseInt(s.slice(i, 2));
@@ -81,10 +81,12 @@ const dict = [
 ];
 
 const inputTest = [
+  ''
  // '',
   //'1',
-  '12',
+  //'12',
   //'226'
 ];
 
-inputTest.forEach(x => log(decodings(x)));
+for(const x of inputTest)
+  log([...decodings(x)]);
