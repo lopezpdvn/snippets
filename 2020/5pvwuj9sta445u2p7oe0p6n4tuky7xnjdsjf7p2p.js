@@ -17,6 +17,7 @@ const decodings = function* (s) {
 };
 
 const _g = function* g(k, s) {
+  if(k < 0) return;
   if(!k) {
     yield '';
     return;
@@ -34,7 +35,7 @@ const _g = function* g(k, s) {
       yield c + c_k;
   }
 
-  const digit2 = parseInt(s.substr(k-2, k));
+  const digit2 = parseInt(s.slice(k-2, k));
   if(26 < digit2 || digit2 < 10)
     return;
   const c_k = dict[digit2];
