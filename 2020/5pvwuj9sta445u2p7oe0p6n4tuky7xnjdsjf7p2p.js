@@ -11,7 +11,7 @@ decodings :: String -> [String]                 */
 const decodings = function* (s) {
   if(s === undefined || s === null)
     throw new Error();
-  yield* _g(s.length, s)
+  yield* _g(s.length, s);
 };
 
 const _g = function* g(k, s) {
@@ -27,71 +27,31 @@ const _g = function* g(k, s) {
   }
 
   if(s[k-1] !== '0') {
-    const ck = dict[parseInt(s[k-1])];
-    for(const c of g(k-1, s)) {
-      yield c + ck;
-    }
+    const c_k = dict[parseInt(s[k-1])];
+    for(const c of g(k - 1, s))
+      yield c + c_k;
   }
 
-  return;
-
-
-  if(!memo[i]) {
-    memo[i] = g(i - 1, s, memo);
-
-    if(i > 1) {
-      const digit2 = parseInt(s.slice(i-2, i));
-      if(digit2 <= 26) {
-        log(i-2);
-        log(memo);
-        //log(i);
-        //log(digit2);
-        memo[i] = memo[i].concat(g(i - 2, s, memo));
-        //memo[i] = memo[i].concat(dict[digit2]);
-      }
-    }
-
-  }
-
-  return memo[i];
+  const digit2 = parseInt(s.substr(k-2, k));
+  if(26 < digit2 || digit2 < 10)
+    return;
+  const c_k = dict[digit2];
+  for(const c of g(k - 2, s))
+    yield c + c_k;
 };
 
-const dict = [
-  [],
-  'A',
-  'B',
-  'C',
-  'D',
-  'E',
-  'F',
-  'G',
-  'H',
-  'I',
-  'J',
-  'K',
-  'L',
-  'M',
-  'N',
-  'O',
-  'P',
-  'Q',
-  'R',
-  'S',
-  'T',
-  'U',
-  'V',
-  'W',
-  'X',
-  'Y',
-  'Z',
-];
+const dict = [undefined, 'A', 'B', 'C', 'D', 'E',
+  'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
+  'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',
+  'X', 'Y', 'Z'];
 
 const inputTest = [
   '',
   '1',
   '12',
-  //'226'
+  '226',
+  '111'
 ];
 
 for(const x of inputTest)
-  log([...decodings(x)]);
+  log([...decodings(x)].sort());
