@@ -1,9 +1,16 @@
 'use strict'; const log = console.log; (async ()=>{
 
-/* You are climbing a stair case. It takes n steps
-to reach to the top.  Each time you can either
-climb 1 or 2 steps. Enumerate all distinct ways
-you can climb to the top. */
+/* You climb a stair case of n steps total, 1 or 2
+steps at a time. Enumerate all distinct ways you
+can climb to the top.
+
+Ex0: 0 -> []
+Ex1: 1 -> [1]
+Ex2: 2 -> [1, 1], [2]
+Ex3: 3 -> [1, 1, 1], [1, 2], [2, 1]
+Ex4: 4 -> [1, 1, 1, 1], [1, 1, 2], [1, 2, 1],
+                        [2, 1, 1], [2, 2]       */
+
 const climbStairs = function* f(n) {
   if(n < 0) return;
   if(!n) {
@@ -32,7 +39,7 @@ for(const x of testIn)
 [ [ 1 ] ]
 [ [ 1, 1 ], [ 2 ] ]
 [ [ 1, 1, 1 ], [ 1, 2 ], [ 2, 1 ] ]
-[ 
+[
   [ 1, 1, 1, 1 ],
   [ 1, 1, 2 ],
   [ 1, 2, 1 ],
