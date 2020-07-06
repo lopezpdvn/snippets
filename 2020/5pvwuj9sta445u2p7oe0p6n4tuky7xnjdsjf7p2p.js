@@ -2,12 +2,14 @@ const log = console.log;
 
 /* A non-empty str containing letters A-Z is
 encoded to nums w/ A->1, B->2, ..., Z->26.
-Return decodings.
+Enumerate decodings.
 
-Ex1: '12'  -> 'AB', 'L'
-Ex2: '226' -> 'BZ', 'VF' or 'BBF'
+Ex0: ""    -> [""]
+Ex1: "1"   -> ["A"]
+Ex2: "12"  -> ["AB" , "L"]
+Ex3: "226" -> ["BBF", "BZ", "VF"]
+Ex4: "111" -> ["AAA", "AK", "KA"]               */
 
-decodings :: String -> [String]                 */
 const decodings = function* (s) {
   if(s === undefined || s === null)
     throw new Error();
