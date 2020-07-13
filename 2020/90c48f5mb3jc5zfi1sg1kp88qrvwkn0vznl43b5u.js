@@ -23,10 +23,10 @@ const climbStairs = function* f(n) {
   }
 
   for(const e of f(n-1))
-    yield [1].concat(e);
+    yield e.concat(1);
 
   for(const e of f(n-2))
-    yield [2].concat(e);
+    yield e.concat(2)
 };
 
 const testIn = [0, 1, 2, 3, 4, 5];
