@@ -1,6 +1,12 @@
 # Let A & B be asc sorted [Int] each. Get k
 # (a, b) with smallest a + b, where a ∈ A and
-# b ∈ B
+# b ∈ B. Examples:
+# 
+# [1,7,11] -> [2,4,6] -> 3 -> [(1,2), (1,4),(1,6)]
+# [1,1,2]  -> [1,2,3] -> 2 -> [(1,1), (1,1)]
+# [1, 2]   -> [3]     -> 3 -> [(1,3), (2,3)]
+# 
+# f ∷ [Int] -> [Int] -> Int -> [(Int, Int)]
 
 from queue import PriorityQueue
 
