@@ -7,8 +7,18 @@ const uInt2Str = (num, byteLength = 4) => {
   return bytes;
 };
 
-log(String.fromCharCode(...uInt2Str(255)));
+const x = 168496141;
+log(String.fromCharCode(...uInt2Str(x)));
+log(uInt2Str(x).map(n => n.toString(16).padStart(2, '0')));
+log(x.toString(16));
 
-// ÿ
+//
+//
+//
+//
+// [ '0d', '0c', '0b', '0a' ]
+// a0b0c0d
+
+// https://en.wikipedia.org/wiki/Endianness#Classical_example
 
 })();
