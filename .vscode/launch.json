@@ -5,6 +5,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "CodeLens (Launch) - Solution",
+      "request": "launch",
+      "mainClass": "Solution",
+      "projectName": "snippets_776fc007"
+    },
+    {
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
