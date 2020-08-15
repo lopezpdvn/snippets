@@ -1,8 +1,6 @@
-const log = console.log;
-
 /* A non-empty str containing letters A-Z is
 encoded to nums w/ A->1, B->2, ..., Z->26.
-Enumerate decodings.
+Enumerate f.
 
 Ex0: ""    -> [""]
 Ex1: "1"   -> ["A"]
@@ -10,7 +8,7 @@ Ex2: "12"  -> ["AB" , "L"]
 Ex3: "226" -> ["BBF", "BZ", "VF"]
 Ex4: "111" -> ["AAA", "AK", "KA"]               */
 
-const decodings = function* (s) {
+const f = function* (s) {
   if(s === undefined || s === null)
     throw new Error();
   yield* _g(s.length, s);
@@ -48,13 +46,11 @@ const dict = [undefined, 'A', 'B', 'C', 'D', 'E',
   'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',
   'X', 'Y', 'Z'];
 
-const inputTest = [
-  '',
-  '1',
-  '12',
-  '226',
-  '111'
-];
+const log = console.log,
+  eq = require('assert').deepStrictEqual;
 
-for(const x of inputTest)
-  log([...decodings(x)].sort());
+eq([...f('')], ['']);
+eq([...f('1')], ['A']);
+eq([...f('12')], ['AB', 'L']);
+eq([...f('226')], ['BBF', 'VF', 'BZ']);
+eq([...f('111')], ['AAA', 'KA', 'AK']);
