@@ -41,13 +41,8 @@ const _g = function* g(k, s) {
     yield c + c_k;
 };
 
-const dict = [undefined, 'A', 'B', 'C', 'D', 'E',
-  'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
-  'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',
-  'X', 'Y', 'Z'];
-
-const log = console.log,
-  eq = require('assert').deepStrictEqual;
+const dict = [...'AABCDEFGHIJKLMNOPQRSTUVWXYZ'],
+      eq = require('assert').deepStrictEqual;
 
 eq([...f('')], ['']);
 eq([...f('1')], ['A']);
