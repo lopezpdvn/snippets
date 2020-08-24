@@ -20,6 +20,7 @@ By [Pedro Ivan Lopez](http://pedroivanlopez.com).
 - Python >= 3
 - LINQPad >= 5
 - JDK >= 11.
+- GCC
 
 ### Visual Studio Code
 
