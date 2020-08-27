@@ -31,6 +31,16 @@ By [Pedro Ivan Lopez](http://pedroivanlopez.com).
 1. Java Extension Pack
 1. Language Support for Java(TM) by Red Hat
 
+### Java
+
+_File_ > _Open Folder_ with Visual Studio Code, path of isolated directory of
+(typically only 1) source code files `2020/<path>`.
+
+Then just _Run_ > _Start Debugging_.
+
+If it fails search for existing `launch.json` files and copy to your current
+directory.
+
 ### Haskell
 
 In WSL, just compile
