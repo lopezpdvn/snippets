@@ -21,6 +21,7 @@ By [Pedro Ivan Lopez](http://pedroivanlopez.com).
 - LINQPad >= 5
 - JDK >= 11.
 - GCC
+- `sudo apt install ghc` (WSL)
 
 ### Visual Studio Code
 
@@ -29,3 +30,19 @@ By [Pedro Ivan Lopez](http://pedroivanlopez.com).
 1. Debugger for Java
 1. Java Extension Pack
 1. Language Support for Java(TM) by Red Hat
+
+### Haskell
+
+In WSL, just compile
+
+```haskell
+$ ghc name_of_file.hs
+```
+
+And run
+
+```haskell
+$ ./name_of_file
+< awesome output >
+...
+```
