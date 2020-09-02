@@ -30,6 +30,7 @@ By [Pedro Ivan Lopez](http://pedroivanlopez.com).
 1. Debugger for Java
 1. Java Extension Pack
 1. Language Support for Java(TM) by Red Hat
+1. `ms-python.python`
 
 ### Java
 
