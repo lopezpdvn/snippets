@@ -3,9 +3,9 @@ from itertools import product
 def get_coordinates(m, n):
   return product(range(m), range(n))
 
-w = 3
-h = 2
-y = (*product(range(h), range(w)),)
+nCols = 3
+nRows = 2
+y = (*get_coordinates(nRows, nCols),)
 
 print(len(y))
 for e in y:
