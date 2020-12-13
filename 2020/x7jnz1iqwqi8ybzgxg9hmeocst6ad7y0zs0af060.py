@@ -32,3 +32,5 @@ assert (*f('1'),  ) == ('A'  ,)
 assert (*f('12'), ) == ('AB' , 'L')
 assert (*f('226'),) == ('BBF', 'VF', 'BZ')
 assert (*f('111'),) == ('AAA', 'KA', 'AK')
+
+# A non-empty str containing letters A-Z is encoded to nums w/ A->1, B->2, ..., Z->26. Enumerate decodings.
