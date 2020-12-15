@@ -1,3 +1,8 @@
+# Find the next node IODFT of a given node in a
+# BST. Assume nodes have a link to their parent.
+
+# f :: BTNode -> BTNode
+
 def f(p):
     if not p:
         return p
