@@ -5,4 +5,6 @@ def _reverse(A):
         j = n - i - 1
         A[i], A[j] = A[j], A[i]
 
-_reverse([1,2,3,4]) == [4,3,2,1]
+B = [1,2,3,4]
+_reverse(B)
+assert B == [4,3,2,1]
