@@ -15,7 +15,7 @@ def f(A, x):
         M = L + (R - L) // 2
         if A[M] == x: return M
 
-        if A[0] <= A[-1]:
+        if A[L] <= A[R]:
             if x < A[M]:
                 R = M - 1
             else:
