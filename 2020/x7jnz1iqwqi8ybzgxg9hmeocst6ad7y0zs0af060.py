@@ -13,7 +13,7 @@ def g(s, k):
         if enc != '0':
             c = decodict[int(enc)]
             yield c
-            return
+        return
 
     enc = s[k-1]
     if enc != '0':
@@ -29,7 +29,9 @@ def g(s, k):
 
 assert (*f(''),   ) == (''   ,)
 assert (*f('1'),  ) == ('A'  ,)
+assert (*f('0'),  ) == ()
 assert (*f('12'), ) == ('AB' , 'L')
+assert (*f('22'),) == ('BB', 'V')
 assert (*f('226'),) == ('BBF', 'VF', 'BZ')
 assert (*f('111'),) == ('AAA', 'KA', 'AK')
 
