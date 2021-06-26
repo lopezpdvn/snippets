@@ -12,7 +12,7 @@ def cartesian_prod(arrs):
             return []
 
         _A = A
-        A = [[]] * (len(_A) * len(arr))
+        A = [[] for i in range(len(_A) *len(arr))]
 
         i = 0
         for _a in _A:
