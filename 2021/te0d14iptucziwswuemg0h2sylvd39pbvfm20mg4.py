@@ -21,3 +21,5 @@ def f(s, c, i):
 
 assert f('abcdebdde', 'e', 7) == 8
 assert f('abcdebdde', 'c', 0) == 2
+assert f('abcdebdde', 'e', 8) == 8
+assert f('abcdebdee', 'e', 7) == 7
