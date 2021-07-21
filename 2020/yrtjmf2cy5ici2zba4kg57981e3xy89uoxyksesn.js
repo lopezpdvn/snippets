@@ -5,8 +5,7 @@ const x = [0, null, undefined];
 // Does x have at least one element?
 const isXNotEmpty =
   x.some(
-    e =>
-      e || !e);
+    e => true);
 
 log(isXNotEmpty);
 
