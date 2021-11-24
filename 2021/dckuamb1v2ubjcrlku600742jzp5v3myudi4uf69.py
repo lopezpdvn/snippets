@@ -19,7 +19,7 @@ def g(s, t):
         small = s
         large = t
 
-    for x in zip(large, small):
+    for x in zip(s, t):
         yield ''.join(x)
 
     len_diff = len(large) - len(small)
