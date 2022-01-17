@@ -15,13 +15,13 @@ def f(A, x):
         M = L + (R - L) // 2
         if A[M] == x: return M
 
-        if A[L] <= A[R]:
-            if A[L] <= x < A[M]:
+        if A[L] < A[R]:
+            if x < A[M]:
                 R = M - 1
             else:
                 L = M + 1
         else:
-            if A[L] >= x > A[M]:
+            if x > A[M]:
                 R = M - 1
             else:
                 L = M + 1
