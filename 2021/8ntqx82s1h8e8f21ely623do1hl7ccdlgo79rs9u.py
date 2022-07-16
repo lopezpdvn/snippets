@@ -1,27 +1,34 @@
 # agnostic binary search
 
-def f(A, x):
-    if A is None: raise Exception()
-    if not A: return -1
-    n = len(A)
+def f(A, target):
+    if not A:
+        return -1
 
-    if A[0] == A[-1]:
-        return 0 if x == A[0] else -1
+    n = len(A)
+    if n == 1:
+        return 0 if A[0] == target else -1
 
     L = 0
     R = n - 1
 
+    if A[L] == A[R]:
+        return 0 if A[0] == target else -1
+
     while L <= R:
         M = L + (R - L) // 2
-        if A[M] == x: return M
+        if A[M] == target:
+            return M
+
+        if A[L] == A[R]:
+            return -1
 
         if A[L] < A[R]:
-            if x < A[M]:
+            if target < A[M]:
                 R = M - 1
             else:
                 L = M + 1
         else:
-            if x > A[M]:
+            if target > A[M]:
                 R = M - 1
             else:
                 L = M + 1
