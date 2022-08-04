@@ -12,21 +12,15 @@ def f(s, t):
     return ''.join(g(s, t))
 
 def g(s, t):
-    if len(s) >= len(t):
-        large = s
-        small = t
-    else:
-        small = s
-        large = t
-
-    for x in zip(s, t):
-        yield ''.join(x)
-
-    len_diff = len(large) - len(small)
-    if not len_diff:
+    yield from (''.join(x) for x in zip(s, t))
+    slen = len(s)
+    tlen = len(t)
+    if slen == tlen:
         return
-
-    yield large[-len_diff:]
+    nremain = abs(slen - tlen)
+    yield from (s[-nremain:]
+                if slen > tlen
+                else t[-nremain:])
 
 assert f('', '') == ''
 assert f('ab', 'cd') == 'acbd'
