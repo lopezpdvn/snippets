@@ -1,7 +1,7 @@
 # Interleave 2 strings, using basic convolution only
-# 
+#
 # f :: String -> String -> String
-# 
+#
 # Ex0: ''     -> ''   -> ''
 # Ex1: 'ab'   -> 'cd' -> 'acbd'
 # Ex2: 'abcd' -> 'ef' -> 'aebfcd'
@@ -18,9 +18,8 @@ def g(s, t):
     if slen == tlen:
         return
     nremain = abs(slen - tlen)
-    yield from (s[-nremain:]
-                if slen > tlen
-                else t[-nremain:])
+    str_remain = s if slen > tlen else t
+    yield str_remain[-nremain:]
 
 assert f('', '') == ''
 assert f('ab', 'cd') == 'acbd'
