@@ -17,21 +17,13 @@ incrementCounter = do
   count <- get
   put (count + 1)
 
--- Define a function that gets the current value of the counter
-getCounter :: CounterState Int
-getCounter = get
-
--- Define a function that runs a sequence of stateful actions
-runCounter :: CounterState a -> Int -> (a, Int)
-runCounter actions initialState = runState actions initialState
-
 -- Now we can use our stateful functions like this:
 main :: IO ()
 main = do
-  let (result, finalState) = runCounter (do
+  let (result, finalState) = runState (do
                                          incrementCounter
                                          incrementCounter
-                                         getCounter
+                                         get
                                        ) 0
   print result  -- prints 2
   print finalState  -- prints 2
