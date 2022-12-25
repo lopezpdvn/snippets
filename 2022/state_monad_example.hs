@@ -21,10 +21,9 @@ incrementCounter = do
 main :: IO ()
 main = do
   let (result, finalState) = runState (do
-                                         incrementCounter
-                                         incrementCounter
-                                         get
-                                       ) 0
+      incrementCounter
+      incrementCounter
+      get) 0
   print result  -- prints 2
   print finalState  -- prints 2
 
