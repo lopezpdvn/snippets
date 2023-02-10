@@ -1,3 +1,4 @@
+# partition
 def f(A, l=None, r=None):
     l = l or 0
     r = r or len(A) - 1
