@@ -1,23 +1,23 @@
-from collections import deque
+class G:
+  def topsort(self):
+    from collections import deque, Counter
+    indeg = Counter()
+    for nbors in self.graph.values():
+      for nbor in nbors:
+        indeg[nbor] += 1
+    bftq = deque(node for node in self.graph
+                      if not indeg[node])
+    _topsort = deque()
 
-class Graph:
+    while bftq:
+      node = bftq.popleft()
+      _topsort.append(node)
 
-    def topological_sort():
+      for nbor in self.graph[node]:
+        indeg[nbor] -= 1
+        if not indeg[nbor]:
+          bftq.append(nbor)
 
-        inDeg = self.get_in_degrees()
-        bftq = deque(node for node, inDeg
-                 in enumerate(inDeg) if not inDeg)
-
-        topSort = deque()
-
-        while bftq:
-            src = bftq.pop()
-            topSort.appendleft(src)
-
-            neighbors = self.get(src, ())
-            for neighbor in neighbors:
-                inDeg[neighbor] -= 1
-                if not inDeg[neighbor]:
-                    bftq.appendleft(neighbor)
-
-        return topSort if len(topSort) == self.size else deque()
+    return (_topsort
+        if len(_topsort) == len(self.graph)
+        else None)
