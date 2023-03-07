@@ -3,25 +3,24 @@
 # Write a method to compute all permutations of
 # a string of unique characters
 
-def f(s):
-    if not s or len(s) < 2:
-        yield s
+def g(S, k):
+    if not k:
+        yield ''
         return
 
-    for sub_perm in f(s[1:]):
-        yield from insert_at_all(s[0], sub_perm)
+    s = S[-k]
+    for perm in g(S, k - 1):
+        for i in range(len(perm) + 1):
+            yield perm[:i] + s + perm[i:]
 
-def insert_at_all(c, s):
-    yield ''.join((c, s))
+def f(S):
+    S = S or ''
+    yield from g(S, len(S))
 
-    for i in range(1, len(s)):
-        yield ''.join((s[:i], c, s[i:]))
-
-    yield ''.join((s, c))
-
-assert (*f(None) ,) == (None,)
+assert (*f(None) ,) == (''  ,)
 assert (*f('')   ,) == (''  ,)
 assert (*f('a')  ,) == ('a' ,)
 assert (*f('ab') ,) == ('ab', 'ba')
 assert (*f('abc'),) == ('abc', 'bac', 'bca',
                         'acb', 'cab', 'cba')
+
