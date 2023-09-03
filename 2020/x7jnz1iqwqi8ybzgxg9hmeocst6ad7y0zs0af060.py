@@ -1,6 +1,8 @@
 num2char = 'AABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-def g(s, n):
+def g(s):
+    s = s or ''
+    n = len(s)
     if not n:
         yield ''
         return
@@ -11,15 +13,15 @@ def g(s, n):
         return
     x = int(s[n - 2:n])
     if 10 <= x <= 26:
-        for prefix in g(s, n - 2):
+        for prefix in g(s[:n-2]):
             yield prefix + num2char[x]
     x = int(s[n - 1])
     if not x:
         return
-    for prefix in g(s, n - 1):
+    for prefix in g(s[:n-1]):
         yield prefix + num2char[x]
 
-f = lambda s: (*g(s, len(s)),)
+f = lambda s: (*g(s),)
 
 assert f('') == (''   ,)
 assert f('1') == ('A'  ,)
