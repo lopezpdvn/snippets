@@ -4,7 +4,7 @@ def f(A, l=None, r=None):
     r = r or len(A) - 1
     pivot = A[l + (r - l) // 2]
 
-    while l < r:
+    while l <= r: # it can be < also
         while A[l] < pivot:
             l += 1
         while pivot < A[r]:
