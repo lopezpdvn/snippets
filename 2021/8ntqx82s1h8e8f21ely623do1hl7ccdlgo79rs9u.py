@@ -1,12 +1,9 @@
 # agnostic binary search
 
 def f(A, x):
-    if not A: return -1
-    n = len(A)
-    L = 0
-    R = n - 1
+    L, R = 0, len(A) - 1
     while L <= R:
-        if A[L] == A[R]:
+        if L == R or A[L] == A[R]:
             return L if A[L] == x else -1
         M = L + (R - L) // 2
         if x == A[M]: return M
