@@ -1,11 +1,9 @@
 def f(AA):
     BB = [[]]
-    if not AA:
-        return []
+    if not AA: return []
 
     for A in AA:
-        if not A:
-            return []
+        if not A: return []
         _BB = BB
         BB = [None] * (len(A) * len(_BB))
 
@@ -17,7 +15,7 @@ def f(AA):
 
     return BB
 
-x = [[1,2], ['A'], 'xyz']
+x = [[1,2], 'A', 'xyz']
 y = f(x)
 
 for e in y:
