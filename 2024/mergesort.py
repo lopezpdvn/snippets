@@ -1,7 +1,7 @@
 def merge(A, l, m , r):
     H, hl, hr, i = [*A[l:r+1]], 0, (r-l)//2+1, l
 
-    while hl <= (r-l)//2 and hr <= r-l:
+    while hl <= (r-l)//2 and hr < len(H):
         if H[hl] <= H[hr]:
             A[i] = H[hl]
             hl += 1
