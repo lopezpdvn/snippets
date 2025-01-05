@@ -8,19 +8,19 @@
 # Ex3: 'ab'   -> ''   -> 'ab'
 # Ex4: ''     -> 'ab' -> 'ab'
 
-def zip_longest(A, B, fillval=None):
+def zip_longest(A, B, fillv=None):
   yield from zip(A, B)
   if len(A) == len(B): return
   nremain = abs(len(A) - len(B))
   if len(A) > len(B):
-    yield from ((a,fillval) for a in A[-nremain:])
+    yield from ((a,fillv) for a in A[-nremain:])
   else:
-    yield from ((fillval,b) for b in B[-nremain:])
+    yield from ((fillv,b) for b in B[-nremain:])
 
-g = lambda A, B, fillval: (''.join(x)
-         for x in zip_longest(A, B, fillval))
+g = lambda A, B, fillv: (''.join(x)
+         for x in zip_longest(A, B, fillv))
 
-f = lambda A, B, fillval='': ''.join(g(A, B, fillval))
+f = lambda A, B, fillv='': ''.join(g(A, B, fillv))
 
 assert f('', '') == ''
 assert f('ab', 'cd') == 'acbd'
