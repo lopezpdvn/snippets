@@ -17,13 +17,16 @@ def zip_longest(A, B, fillval=None):
   else:
     yield from ((fillval,b) for b in B[-nremain:])
 
-g = lambda A, B: (''.join(x)
-         for x in zip_longest(A, B, fillval=''))
+g = lambda A, B, fillval: (''.join(x)
+         for x in zip_longest(A, B, fillval))
 
-f = lambda A, B: ''.join(g(A, B))
+f = lambda A, B, fillval='': ''.join(g(A, B, fillval))
 
 assert f('', '') == ''
 assert f('ab', 'cd') == 'acbd'
 assert f('abcd', 'ef') == 'aebfcd'
 assert f('ab', '') == 'ab'
 assert f('', 'ab') == 'ab'
+assert f('abcd', 'ef') == 'aebfcd'
+assert f('abcd', 'ef', 'x') == 'aebfcxdx'
+assert f('ef', 'abcd', 'x') == 'eafbxcxd'
