@@ -1,7 +1,8 @@
-# Write a function that prints the numbers from 1 to n (inclusive). However, for
-# multiples of 3, print "Fizz" instead of the number, and for multiples of 5,
-# print "Buzz". For numbers that are multiples of both 3 and 5, print
-# "FizzBuzz".
+# Write a function that prints the numbers from 1
+# to n (inclusive). However, for multiples of 3,
+# print "Fizz" instead of the number, and for
+# multiples of 5, print "Buzz". For numbers that
+# are multiples of both 3 and 5, print "FizzBuzz".
 
 def g(n):
     for i in range(1, n+1):
