@@ -1,26 +1,26 @@
-def merge(A, l, m , r):
-    H, hl, hr, i = [*A[l:r+1]], 0, (r-l)//2+1, l
+def merge(A, l, m, r):
+    H = A[l : r + 1]
+    ai, hm = l, (len(H)-1)//2
+    hl, hr = 0, hm + 1
 
-    while hl <= (r-l)//2 and hr < len(H):
+    while hl <= hm and hr <= len(H)-1:
         if H[hl] <= H[hr]:
-            A[i] = H[hl]
+            A[ai] = H[hl]
             hl += 1
         else:
-            A[i] = H[hr]
+            A[ai] = H[hr]
             hr += 1
-        i += 1
+        ai += 1
 
-    while hl <= (r-l)//2:
-        A[i] = H[hl]
-        i += 1
-        hl += 1
+    A[ai : ai + (hm-hl)+1] = H[hl : hm+1]
+
+    return A
 
 def mergesort(A, l=None, r=None):
     l = 0 if l is None else l
     r = len(A) - 1 if r is None else r
     if l >= r: return A
-
-    m = l + (r-l) // 2
+    m = l + (r - l) // 2
     mergesort(A, l, m)
     mergesort(A, m + 1, r)
     merge(A, l, m, r)
